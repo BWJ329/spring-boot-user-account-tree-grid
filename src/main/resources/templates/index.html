@@ -1,0 +1,116 @@
+<html lang="en">
+    <head xmlns="http://www.w3.org/1999/xhtml"
+  			xmlns:th="http://www.thymeleaf.org">
+        <meta charset="utf-8"></meta>
+ 		<meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+    	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+        <title>Welcome To Nuid Portal Dashboard</title>
+        <!-- Bootstrap Core CSS -->
+        <link th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+        <link th:href="@{css/jqx.base.css}" rel="stylesheet" />
+        <link th:href="@{css/jqx.custom.css}" rel="stylesheet" />
+        
+        <script th:src="@{js/jquery-1.11.1.min.js}"></script>
+        <script th:src="@{js/bootstrap.min.js}"></script>
+        
+        <!-- angular js -->
+        <script th:src="@{js/app/angular.min.js}"></script>
+        <script th:src="@{js/app/angular-route.js}"></script>
+        <script th:src="@{js/app/app.module.js}"></script>
+        <script th:src="@{js/app/service.js}"></script>
+         <script th:src="@{js/app/controller.js}"></script>
+		
+		<!-- jqx widgets -->
+		<script th:src="@{js/jqxcore.js}"></script>
+		<script th:src="@{js/demos.js}"></script>
+		<script th:src="@{js/jqxbuttons.js}"></script>
+		<script th:src="@{js/jqxdata.js}"></script>
+		<script th:src="@{js/jqxdatatable.js}"></script>
+		<script th:src="@{js/jqxscrollbar.js}"></script>
+		<script th:src="@{js/jqxtreegrid.js}"></script>
+		<script th:src="@{js/jqxlistbox.js}"></script>
+		<script th:src="@{js/jqxdropdownlist.js}"></script>
+		<script th:src="@{js/jqxinput.js}"></script>
+		<script th:src="@{js/jqxcheckbox.js}"></script>
+        <!-- hover effect -->
+        
+        <link th:href="@{css/hover-min.css}" rel="stylesheet" />
+        <!-- Custom CSS -->
+        <link th:href="@{css/custom.css}" rel="stylesheet" />
+        <link th:href="@{css/dashboard.css}" rel="stylesheet" />
+        <!-- Custom javascript -->
+        <script th:src="@{js/custom.js}"></script>	
+    </head>
+    <body ng-app="app" ng-controller="homeCtrl">
+        <div id="wrap">
+            <!-- breadcrumbs start -->
+            <section class="flw breadcrumb-main">
+                <div class="dashboard-container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        	<a href="#/"><img src="images/logo.png"/></a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        	<h2 class="title">NUID PORTAL</h2>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <h1 class="title">Welcome {{personDetail.data.ldapData[0].cn}} </h1>
+                        </div>
+                    </div>	
+                </div>
+            </section>
+            <!-- Breadcrumb END -->
+            <!-- inner page section Start-->
+            <section class="flw inner-page dashboard-container">
+                            <div class="row">
+                                <div class="col-lg-2 col-md-3 col-sm-11 col-xs-11 db-menu">                              	
+                                    <ul>
+                                        <li class="active"><a href="#/"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                                        <li class="ml-menu-section"><a href=""><span class="glyphicon glyphicon-th-list"></span>NUID Reports</a></li>                                                         
+				                        <ul class="ml-menu">
+				                            <li>
+				                            	
+				                                <a href="#/accountsByUser"><span></span>Accounts by User</a>
+				                            </li>
+				                            <li>
+				                                <a href="#/accountsByUseTemp"><span></span>Accounts by User's Staff 
+												</a>
+				                            </li>
+				                            <li>
+				                                <a href="#/SearchByNuID"><span></span>Search By NuID</a>
+				                            </li>
+				                        </ul>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-9 col-md-8 col-sm-11 col-xs-11">
+                                
+                                <!-- Template content -->
+                                	<div ng-view=""></div>
+                                <!-- Template content -->
+                                </div>
+                            </div>
+            </section>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="legal">
+                                <div class="copyright">&copy; 2017
+                                    <a href="javascript:void(0);"> &nbsp;&nbsp;&nbsp;Fannie Mae <br/>
+                                     <i> <font size="1" color="green"> Confidential - Internal Use Only </font></i> 
+                                    </a>
+                                </div> 
+                    </div>
+                </div>
+            </div>
+               
+
+        </footer>
+        <script>
+        $(document).ready(function(){
+        	//sub menu slide show
+        	$('.ml-menu').hide();
+        });
+        </script>
+    </body>
+</html>
